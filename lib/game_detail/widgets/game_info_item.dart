@@ -12,13 +12,13 @@ class GameInfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36),
+      padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(CupertinoIcons.star,color: Color(0xFFF88A42),size: 20,),
+          Icon(icon,color: const Color(0xFFF88A42),size: 20,),
           const SizedBox(height: 4),
-          Text("4.2",style: GoogleFonts.alata(color: CupertinoColors.black,fontWeight: FontWeight.w700,fontSize: 12),)
+          Text(subtext,style: GoogleFonts.alata(color: CupertinoColors.black,fontWeight: FontWeight.w700,fontSize: 12),)
         ],
       ),
     );

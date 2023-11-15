@@ -91,12 +91,13 @@ class GameDetailScreen extends StatelessWidget {
                     child: SizedBox(
                       height: 50,
                       child: ListView.builder(
-                        itemCount: 4,
+                        itemCount: FakeGameData.gameInfo.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
+                          var game = FakeGameData.gameInfo[index];
                             return GameInfoItem(
-                              icon:CupertinoIcons.star ,
-                              subtext: "",
+                              icon: game.icon,
+                              subtext: game.subtext,
                             );
                           },
                       ),
