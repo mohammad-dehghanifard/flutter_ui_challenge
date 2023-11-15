@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../widgets/back_btn.dart';
 import '../widgets/detail_app_bar.dart';
 import '../widgets/favorite_btn.dart';
+import '../widgets/game_info_item.dart';
 
 class GameDetailScreen extends StatelessWidget {
   const GameDetailScreen({super.key});
@@ -77,6 +78,29 @@ class GameDetailScreen extends StatelessWidget {
                       FavoriteBtn(onTap: () {}),
                       const SizedBox()
                     ],
+                  ),
+                  //game info
+                  Container(
+                    margin: const EdgeInsets.only(top: 32),
+                    padding: const EdgeInsets.all(12),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: CupertinoColors.systemGrey6,
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: SizedBox(
+                      height: 50,
+                      child: ListView.builder(
+                        itemCount: 4,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return GameInfoItem(
+                              icon:CupertinoIcons.star ,
+                              subtext: "",
+                            );
+                          },
+                      ),
+                    )
                   )
                 ],
               ),
@@ -87,5 +111,7 @@ class GameDetailScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 

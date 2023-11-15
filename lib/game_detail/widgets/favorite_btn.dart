@@ -23,7 +23,7 @@ class FavoriteBtn extends StatelessWidget {
                 ]
             )
         ),
-        child: const Center(child: Icon(CupertinoIcons.suit_heart_fill,color: CupertinoColors.white,size: 36,)),
+        child: const Center(child: Icon(CupertinoIcons.suit_heart_fill,color: CupertinoColors.white,size: 32,)),
       ),
     );
   }
