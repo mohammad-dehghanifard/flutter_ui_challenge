@@ -10,6 +10,13 @@ class FakeGameData{
     "assets/images/poster3.png",
   ];
 
+  static List<String> gallery = [
+    "assets/images/poster4.jpg",
+    "assets/images/poster5.jpg",
+    "assets/images/poster6.jpg",
+    "assets/images/poster7.jpg",
+  ];
+
 
   static List<GameInfoItem> gameInfo = [
     const GameInfoItem(icon: CupertinoIcons.star, subtext: "4.2"),

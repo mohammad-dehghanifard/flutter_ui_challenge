@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/game_detail/data/fake_game_data.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import '../widgets/back_btn.dart';
 import '../widgets/detail_app_bar.dart';
 import '../widgets/favorite_btn.dart';
+import '../widgets/gallery_image_item.dart';
 import '../widgets/game_info_item.dart';
 
 class GameDetailScreen extends StatelessWidget {
@@ -39,7 +41,6 @@ class GameDetailScreen extends StatelessWidget {
           Expanded(
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(12),
               decoration: const BoxDecoration(
                   color: CupertinoColors.tertiarySystemBackground,
                   borderRadius: BorderRadius.only(
@@ -50,38 +51,40 @@ class GameDetailScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // name and favorite btn
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      //name
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //game info
-                          Text(
-                            "call of duty modern warfare 3",
-                            style: GoogleFonts.alata(
-                                color: CupertinoColors.black,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 18
-                            ),),
-                          Text(
-                            "action - shooter",
-                            style: GoogleFonts.alata(
-                                color: CupertinoColors.inactiveGray,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14
-                            ),),
-                        ],
-                      ),
-                      // favorite btn
-                      FavoriteBtn(onTap: () {}),
-                      const SizedBox()
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        //name
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            //game info
+                            Text(
+                              "call of duty modern warfare 3",
+                              style: GoogleFonts.alata(
+                                  color: CupertinoColors.black,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 18
+                              ),),
+                            Text(
+                              "action - shooter",
+                              style: GoogleFonts.alata(
+                                  color: CupertinoColors.inactiveGray,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14
+                              ),),
+                          ],
+                        ),
+                        // favorite btn
+                        FavoriteBtn(onTap: () {}),
+                      ],
+                    ),
                   ),
                   //game info
                   Container(
-                    margin: const EdgeInsets.only(top: 32),
+                    margin: const EdgeInsets.only(top: 16,left: 12,right: 12),
                     padding: const EdgeInsets.all(12),
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -102,7 +105,20 @@ class GameDetailScreen extends StatelessWidget {
                           },
                       ),
                     )
-                  )
+                  ),
+                  const SizedBox(height: 24),
+                  // photo gallery
+                  SizedBox(
+                    height: 100,
+                    child: ListView.builder(
+                      itemCount: FakeGameData.gallery.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                      return GalleryImageItem(index: index);
+                    },)
+                  ),
+
+
                 ],
               ),
             ),
@@ -112,6 +128,8 @@ class GameDetailScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
