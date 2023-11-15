@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../widgets/back_btn.dart';
 import '../widgets/detail_app_bar.dart';
@@ -13,7 +14,7 @@ class GameDetailScreen extends StatelessWidget {
         title: "Game Detail",
         leading: BackBtn(onTap: () {},),
       ),
-      body: const Column(
+      body:  Column(
         children: [
 
         ],
