@@ -1,10 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_challenge/game_detail/data/fake_game_data.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:photo_view/photo_view_gallery.dart';
 import 'package:readmore/readmore.dart';
+import '../../data/fake_game_data.dart';
 import '../widgets/back_btn.dart';
 import '../widgets/detail_app_bar.dart';
 import '../widgets/favorite_btn.dart';

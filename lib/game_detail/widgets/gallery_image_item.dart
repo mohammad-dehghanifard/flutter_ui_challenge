@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../data/fake_game_data.dart';
+import '../../data/fake_game_data.dart';
+
 
 class GalleryImageItem extends StatelessWidget {
   const GalleryImageItem({
