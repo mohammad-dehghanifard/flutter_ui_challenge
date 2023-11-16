@@ -24,6 +24,8 @@ class FakeGameData{
     const GameInfoItem(icon: Icons.category_outlined, subtext: "shooter"),
   ];
 
-//================ moive ui fake data ==========================================
+//================ movie ui fake data ==========================================
+
+ static List introItems = [];
 
 }

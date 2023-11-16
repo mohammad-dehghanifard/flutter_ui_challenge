@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../widget/movie_btn.dart';
 
 class MovieIntroScreen extends StatelessWidget {
@@ -31,7 +32,7 @@ class MovieIntroScreen extends StatelessWidget {
               left: 0,
               child: Container(
                 width: double.infinity,
-                height: 500,
+                height: 330,
                 decoration:  BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.black,Colors.black.withOpacity(0.1)],
@@ -48,7 +49,7 @@ class MovieIntroScreen extends StatelessWidget {
               left: 0,
               child: Container(
                 width: double.infinity,
-                height: 270,
+                height: 300,
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   color: const Color(0xFF181818),
@@ -56,8 +57,11 @@ class MovieIntroScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Expanded(child: PageView.builder(
-                      itemCount: 10,
+                    Expanded(
+                      child:
+                      PageView.builder(
+                       controller: pageController,
+                      itemCount: 4,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(12),
@@ -89,6 +93,23 @@ class MovieIntroScreen extends StatelessWidget {
                       },
                     ),),
 
+                    SmoothPageIndicator(
+                      controller: pageController,
+                      count:  4,
+                      axisDirection: Axis.horizontal,
+                      effect: WormEffect(
+                          spacing:  8.0,
+                          radius:  32,
+                          dotWidth:  8,
+                          dotHeight:  8,
+                          paintStyle:  PaintingStyle.fill,
+                          strokeWidth:  1.5,
+                          dotColor:  Colors.white.withOpacity(0.5),
+                          activeDotColor:  Colors.white
+                      ),
+                    ),
+
+                    //next btn
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
                       child: MovieBtn(
