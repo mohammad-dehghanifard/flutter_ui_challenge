@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MovieIntroScreen(),
+      home:  MovieIntroScreen(),
     );
   }
 }

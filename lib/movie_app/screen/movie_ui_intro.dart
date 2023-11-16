@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import 'package:flutter_ui_challenge/movie_app/model/intro_model.dart';
@@ -5,24 +7,33 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../widget/intro_item.dart';
 import '../widget/movie_btn.dart';
 
-class MovieIntroScreen extends StatelessWidget {
-  const MovieIntroScreen({super.key});
+class MovieIntroScreen extends StatefulWidget {
+   const MovieIntroScreen({super.key});
+
+  @override
+  State<MovieIntroScreen> createState() => _MovieIntroScreenState();
+}
+
+class _MovieIntroScreenState extends State<MovieIntroScreen> {
+  final PageController pageController = PageController();
+
+  String imagePath = FakeData.introItems.first.imagePath;
+  bool isLast = false;
 
   @override
   Widget build(BuildContext context) {
-    final PageController pageController = PageController();
-
     return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
             // poster
-            Container(
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 700),
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: Image.asset("assets/movie_ui/movie2.jpg").image,
+                  image: Image.asset(imagePath).image,
                   fit: BoxFit.fill
                 )
               ),
@@ -62,8 +73,13 @@ class MovieIntroScreen extends StatelessWidget {
                     Expanded(
                       child:
                       PageView.builder(
-                       controller: pageController,
+                      controller: pageController,
                       itemCount: FakeData.introItems.length,
+                      onPageChanged: (index) {
+                        setState(() {
+                          imagePath = FakeData.introItems[index].imagePath;
+                        });
+                      },
                       itemBuilder: (context, index) {
                         final IntroModel intro = FakeData.introItems[index];
                         return Padding(
@@ -92,8 +108,8 @@ class MovieIntroScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
                       child: MovieBtn(
-                        onTap: () {},
-                        text: "next",
+                        onTap: () => _gotoNextPage(),
+                        text: isLast? "Lest Go" :"next",
                       ),
                     )
                   ],
@@ -104,6 +120,19 @@ class MovieIntroScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _gotoNextPage() {
+    if(pageController.page! <=2){
+      pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+      if(pageController.page! == 2){
+        setState(() {
+          isLast = true;
+        });
+      }
+    }else{
+      // navigate to home page
+    }
   }
 }
 
