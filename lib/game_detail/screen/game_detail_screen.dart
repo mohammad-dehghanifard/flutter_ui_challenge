@@ -26,14 +26,14 @@ class GameDetailScreen extends StatelessWidget {
           const SizedBox(height: 8),
           // slider
          CarouselSlider.builder(
-             itemCount: FakeGameData.sliders.length,
+             itemCount: FakeData.sliders.length,
              itemBuilder: (context, index, realIndex) => Container(
                 width: 360,
                  height: 64,
                  padding: const EdgeInsets.all(12),
                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                     child: Image.asset(FakeGameData.sliders[index],fit: BoxFit.fill,))
+                     child: Image.asset(FakeData.sliders[index],fit: BoxFit.fill,))
              ),
              options: CarouselOptions(autoPlay: true)),
           const SizedBox(height: 24),
@@ -95,10 +95,10 @@ class GameDetailScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 50,
                         child: ListView.builder(
-                          itemCount: FakeGameData.gameInfo.length,
+                          itemCount: FakeData.gameInfo.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                            var game = FakeGameData.gameInfo[index];
+                            var game = FakeData.gameInfo[index];
                               return GameInfoItem(
                                 icon: game.icon,
                                 subtext: game.subtext,
@@ -112,7 +112,7 @@ class GameDetailScreen extends StatelessWidget {
                     SizedBox(
                       height: 100,
                       child: ListView.builder(
-                        itemCount: FakeGameData.gallery.length,
+                        itemCount: FakeData.gallery.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                         return GalleryImageItem(index: index);

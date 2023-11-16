@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_ui_challenge/data/fake_game_data.dart';
+import 'package:flutter_ui_challenge/movie_app/model/intro_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../widget/intro_item.dart';
 import '../widget/movie_btn.dart';
 
 class MovieIntroScreen extends StatelessWidget {
@@ -61,41 +63,19 @@ class MovieIntroScreen extends StatelessWidget {
                       child:
                       PageView.builder(
                        controller: pageController,
-                      itemCount: 4,
+                      itemCount: FakeData.introItems.length,
                       itemBuilder: (context, index) {
+                        final IntroModel intro = FakeData.introItems[index];
                         return Padding(
                           padding: const EdgeInsets.all(12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              // title
-                              Text(
-                                "All movies and series with all qualities",
-                                style: GoogleFonts.interTight(
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 12),
-                              // content
-                              Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis.",
-                                style: GoogleFonts.interTight(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400,),
-                                textAlign: TextAlign.justify,
-                              ),
-                            ],
-                          ),
+                          child: IntroItem(intro: intro),
                         );
                       },
                     ),),
-
+                    // Indicator
                     SmoothPageIndicator(
                       controller: pageController,
-                      count:  4,
+                      count:  FakeData.introItems.length,
                       axisDirection: Axis.horizontal,
                       effect: WormEffect(
                           spacing:  8.0,
@@ -103,12 +83,11 @@ class MovieIntroScreen extends StatelessWidget {
                           dotWidth:  8,
                           dotHeight:  8,
                           paintStyle:  PaintingStyle.fill,
-                          strokeWidth:  1.5,
-                          dotColor:  Colors.white.withOpacity(0.5),
+                          dotColor:  Colors.white.withOpacity(0.2),
                           activeDotColor:  Colors.white
                       ),
                     ),
-
+                    const SizedBox(height: 16),
                     //next btn
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
@@ -127,5 +106,7 @@ class MovieIntroScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 

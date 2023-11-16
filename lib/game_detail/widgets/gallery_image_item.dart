@@ -20,7 +20,7 @@ class GalleryImageItem extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(FakeGameData.gallery[index]))
+                    child: Image.asset(FakeData.gallery[index]))
             );
           },
         );
@@ -33,7 +33,7 @@ class GalleryImageItem extends StatelessWidget {
             0),
         child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(FakeGameData.gallery[index])),
+            child: Image.asset(FakeData.gallery[index])),
       ),
     );
   }
