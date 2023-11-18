@@ -6,9 +6,11 @@ class MovieModel{
       required this.imageUrl,
       required this.publishYear,
       required this.content,
+      required this.watchTime,
       required this.liked});
 
   final String movieName;
+  final String watchTime;
   final double score;
   final String imageUrl;
   final int publishYear;
