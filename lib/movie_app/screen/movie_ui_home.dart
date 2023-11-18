@@ -5,6 +5,7 @@ import '../widget/movie_list_header.dart';
 import '../widget/movie_slider_item.dart';
 import '../widget/movie_tag.dart';
 import '../widget/movie_text_field.dart';
+import '../widget/watch_movie_item.dart';
 
 class MovieHomeScreen extends StatefulWidget {
    const MovieHomeScreen({super.key});
@@ -20,8 +21,6 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
   Widget build(BuildContext context) {
     final TextEditingController searchTextController = TextEditingController();
     final PageController sliderController = PageController();
-
-
 
     return Scaffold(
       backgroundColor: const Color(0xFF0A0B15),
@@ -92,6 +91,24 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
                 title: "Continue Watch",
                 onPressed: () {},
               ),
+            ),
+            // Continue Watch List
+            SizedBox(
+              height: 140,
+              child: ListView.builder(
+                  itemCount: FakeData.allMovie.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          index == 0? 12 : 0,
+                          0,
+                          12,
+                          0),
+                      child: WatchMovieItem(movie: FakeData.allMovie[index]),
+                    );
+                  },
+              ),
             )
           ],
         ),
@@ -99,6 +116,10 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
     );
   }
 }
+
+
+
+
 
 
 
