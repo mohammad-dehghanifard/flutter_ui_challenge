@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
+import '../widget/movie_indicator.dart';
 import '../widget/movie_slider_item.dart';
 import '../widget/movie_text_field.dart';
 
@@ -34,6 +35,15 @@ class MovieHomeScreen extends StatelessWidget {
                   itemCount: FakeData.movieSlider.length,
                   itemBuilder: (context, index) =>  MovieSliderItem(imagePath: FakeData.movieSlider[index])
               ),
+            ),
+            const SizedBox(height: 12),
+            // Indicator
+            MovieIndicator(
+              pageController: sliderController,
+              count: FakeData.movieSlider.length,
+              dotColor: Colors.white.withOpacity(0.2),
+              dotWidth: 24,
+              dotHeight: 1,
             )
           ],
         ),
