@@ -1,11 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import 'package:flutter_ui_challenge/movie_app/model/intro_model.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../widget/intro_item.dart';
 import '../widget/movie_btn.dart';
+import '../widget/movie_indicator.dart';
 import 'movie_ui_home.dart';
 
 class MovieIntroScreen extends StatefulWidget {
@@ -77,7 +75,6 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
                       controller: pageController,
                       itemCount: FakeData.introItems.length,
                       onPageChanged: (index) {
-                        log(index.toString());
                         setState(() {
                           imagePath = FakeData.introItems[index].imagePath;
                           if(index < 3) {
@@ -101,19 +98,10 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
                       },
                     ),),
                     // Indicator
-                    SmoothPageIndicator(
-                      controller: pageController,
-                      count:  FakeData.introItems.length,
-                      axisDirection: Axis.horizontal,
-                      effect: WormEffect(
-                          spacing:  8.0,
-                          radius:  32,
-                          dotWidth:  8,
-                          dotHeight:  8,
-                          paintStyle:  PaintingStyle.fill,
-                          dotColor:  Colors.white.withOpacity(0.2),
-                          activeDotColor:  Colors.white
-                      ),
+                    MovieIndicator(
+                      pageController: pageController,
+                      count: FakeData.introItems.length,
+                      dotColor: Colors.white.withOpacity(0.2),
                     ),
                     const SizedBox(height: 16),
                     //next btn
@@ -155,6 +143,8 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
     }
   }
 }
+
+
 
 
 
