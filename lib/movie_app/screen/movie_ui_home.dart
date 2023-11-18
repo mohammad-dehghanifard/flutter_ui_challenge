@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import '../widget/movie_indicator.dart';
+import '../widget/movie_list_header.dart';
 import '../widget/movie_slider_item.dart';
 import '../widget/movie_tag.dart';
 import '../widget/movie_text_field.dart';
@@ -83,6 +83,15 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
                       ),
                     );
                   },),
+            ),
+
+            //Continue Watch header
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: MovieListHeader(
+                title: "Continue Watch",
+                onPressed: () {},
+              ),
             )
           ],
         ),
@@ -90,6 +99,7 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
     );
   }
 }
+
 
 
 
