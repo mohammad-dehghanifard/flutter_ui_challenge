@@ -76,8 +76,19 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
                       controller: pageController,
                       itemCount: FakeData.introItems.length,
                       onPageChanged: (index) {
+                        log(index.toString());
                         setState(() {
                           imagePath = FakeData.introItems[index].imagePath;
+                          if(index < 3) {
+                            isLast = false;
+                          }
+
+                          if(index == 3){
+                            setState(() {
+                              isLast = true;
+                            });
+                          }
+
                         });
                       },
                       itemBuilder: (context, index) {
