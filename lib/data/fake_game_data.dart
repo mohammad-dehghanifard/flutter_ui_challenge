@@ -59,5 +59,17 @@ class FakeData{
    "assets/movie_ui/movieslider4.jpg",
    "assets/movie_ui/movieslider5.jpg",
  ];
+ static List<String> tags = [
+   'action',
+   'comedy',
+   'Criminal',
+   'Science fiction',
+   'the musical',
+   'Biography',
+   'Documentary',
+   'scary',
+   'historical',
+   'war'
+ ];
 
 }

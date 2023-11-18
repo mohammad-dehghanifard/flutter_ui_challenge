@@ -113,7 +113,7 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
                             _gotoNextPage();
                           }else{
                             Navigator.pushReplacement(context, MaterialPageRoute(
-                                builder: (context) => const MovieHomeScreen(),
+                                builder: (context) =>  MovieHomeScreen(),
                             ));
                           }
                         },

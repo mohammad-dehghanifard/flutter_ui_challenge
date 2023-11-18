@@ -1,17 +1,28 @@
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import '../widget/movie_indicator.dart';
 import '../widget/movie_slider_item.dart';
+import '../widget/movie_tag.dart';
 import '../widget/movie_text_field.dart';
 
-class MovieHomeScreen extends StatelessWidget {
-  const MovieHomeScreen({super.key});
+class MovieHomeScreen extends StatefulWidget {
+   const MovieHomeScreen({super.key});
+
+  @override
+  State<MovieHomeScreen> createState() => _MovieHomeScreenState();
+}
+
+class _MovieHomeScreenState extends State<MovieHomeScreen> {
+  String selectTag = FakeData.tags.first;
 
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchTextController = TextEditingController();
     final PageController sliderController = PageController();
+
+
+
     return Scaffold(
       backgroundColor: const Color(0xFF0A0B15),
       body: SafeArea(
@@ -44,6 +55,34 @@ class MovieHomeScreen extends StatelessWidget {
               dotColor: Colors.white.withOpacity(0.2),
               dotWidth: 24,
               dotHeight: 1,
+            ),
+            const SizedBox(height: 24),
+            // tags
+            SizedBox(
+              width: double.infinity,
+              height: 45,
+              child: ListView.builder(
+                  itemCount: FakeData.tags.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final tag = FakeData.tags[index];
+                    return Padding(
+                      padding:  EdgeInsets.fromLTRB(
+                          index == 0? 12 : 0,
+                          0,
+                          12,
+                          0),
+                      child: MovieTag(
+                        onTap: () {
+                          setState(() {
+                            selectTag = FakeData.tags[index];
+                          });
+                        },
+                        txt: tag,
+                        selected: selectTag == tag,
+                      ),
+                    );
+                  },),
             )
           ],
         ),
@@ -51,5 +90,7 @@ class MovieHomeScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
