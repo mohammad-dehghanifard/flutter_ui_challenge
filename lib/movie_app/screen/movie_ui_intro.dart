@@ -6,6 +6,7 @@ import 'package:flutter_ui_challenge/movie_app/model/intro_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../widget/intro_item.dart';
 import '../widget/movie_btn.dart';
+import 'movie_ui_home.dart';
 
 class MovieIntroScreen extends StatefulWidget {
    const MovieIntroScreen({super.key});
@@ -119,7 +120,15 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
                       child: MovieBtn(
-                        onTap: () => _gotoNextPage(),
+                        onTap: () {
+                          if(!isLast){
+                            _gotoNextPage();
+                          }else{
+                            Navigator.pushReplacement(context, MaterialPageRoute(
+                                builder: (context) => const MovieHomeScreen(),
+                            ));
+                          }
+                        },
                         text: isLast? "Lest Go" :"next",
                       ),
                     )
