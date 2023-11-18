@@ -52,4 +52,12 @@ class FakeData{
 
  ];
 
+ static List<String> movieSlider = [
+   "assets/movie_ui/movieslider1.jpg",
+   "assets/movie_ui/movieslider2.jpg",
+   "assets/movie_ui/movieslider3.jpg",
+   "assets/movie_ui/movieslider4.jpg",
+   "assets/movie_ui/movieslider5.jpg",
+ ];
+
 }
