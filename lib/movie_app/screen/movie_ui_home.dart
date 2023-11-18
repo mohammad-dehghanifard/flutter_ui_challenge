@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import '../widget/movie_indicator.dart';
 import '../widget/movie_list_header.dart';
+import '../widget/movie_list_item.dart';
 import '../widget/movie_slider_item.dart';
 import '../widget/movie_tag.dart';
 import '../widget/movie_text_field.dart';
@@ -109,13 +110,41 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
                     );
                   },
               ),
-            )
+            ),
+
+            //New Movie header
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: MovieListHeader(
+                title: "New Movies",
+                onPressed: () {},
+              ),
+            ),
+            SizedBox(
+              height: 190,
+              child: ListView.builder(
+                itemCount: FakeData.allMovie.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.fromLTRB(
+                        index == 0? 12 : 0,
+                        0,
+                        12,
+                        0),
+                    child: MovieListItem(movie: FakeData.allMovie[index])
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
 
 
 
