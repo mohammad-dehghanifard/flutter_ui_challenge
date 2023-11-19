@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/movie_app/model/movie_model.dart';
+import 'package:flutter_ui_challenge/movie_app/widget/movie_btn.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widget/movie_detail_holder.dart';
@@ -46,21 +47,37 @@ class MovieDetailScreen extends StatelessWidget {
                   ),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // name and score
+                    //movie name
+                    Text(movie.movieName,style : GoogleFonts.interTight(
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    )),
+                    const SizedBox(height: 12),
+                    // score and publish year
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                      Text(movie.movieName,style : GoogleFonts.interTight(
-                        fontSize: 22,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                      )),
-                      MovieDetailHolder(
-                        value: movie.score,
-                        title: "Imdb : ",
-                      )
-                    ],)
+                        // score
+                        MovieDetailHolder(
+                          value: movie.score,
+                          title: "Imdb : ",
+                        ),
+
+                        MovieDetailHolder(
+                          value: movie.publishYear,
+                        ),
+                        const MovieDetailHolder(
+                          value: "HDR",
+                        ),
+                    ],),
+                    
+                    MovieBtn(
+
+                        onTap: () {},
+                        text: "Play Movie!")
                   ],
                 ),
               ),
