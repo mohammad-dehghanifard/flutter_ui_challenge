@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import 'package:flutter_ui_challenge/movie_app/model/intro_model.dart';
+import 'package:flutter_ui_challenge/movie_app/screen/movie_main_screen.dart';
 import '../widget/intro_item.dart';
 import '../widget/movie_btn.dart';
 import '../widget/movie_indicator.dart';
@@ -113,7 +114,7 @@ class _MovieIntroScreenState extends State<MovieIntroScreen> {
                             _gotoNextPage();
                           }else{
                             Navigator.pushReplacement(context, MaterialPageRoute(
-                                builder: (context) =>  MovieHomeScreen(),
+                                builder: (context) =>  const MovieMainScreen(),
                             ));
                           }
                         },
