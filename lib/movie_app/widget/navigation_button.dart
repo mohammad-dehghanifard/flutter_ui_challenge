@@ -5,7 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 GButton movieNavigationButton({
   required IconData icon,
   required String text,
-  required VoidCallback onTap,
+  required Function() onTap,
 }) {
   return GButton(
     onPressed: onTap,
