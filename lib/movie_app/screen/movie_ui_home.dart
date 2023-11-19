@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/data/fake_game_data.dart';
+import 'package:flutter_ui_challenge/movie_app/screen/movie_ui_detail.dart';
 import '../widget/movie_indicator.dart';
 import '../widget/movie_list_header.dart';
 import '../widget/movie_list_item.dart';
@@ -134,7 +135,14 @@ class _MovieHomeScreenState extends State<MovieHomeScreen> {
                           0,
                           12,
                           0),
-                      child: MovieListItem(movie: FakeData.allMovie[index])
+                      child: MovieListItem(
+                          movie: FakeData.allMovie[index],
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => MovieDetailScreen(movie: FakeData.allMovie[index]),
+                            ));
+                          },
+                      )
                     );
                   },
                 ),
