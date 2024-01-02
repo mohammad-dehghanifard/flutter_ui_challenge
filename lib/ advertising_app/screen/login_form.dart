@@ -76,6 +76,7 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                                 value: isMale == false,
                               ),
                             ),
+                            const SizedBox(width: 20),
                             //male
                             Expanded(
                                 child: CustomRadioButton(
@@ -88,7 +89,11 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                                 ),
                             ),
                           ],
-                        )
+                        ),
+                        // Ability
+                        Text("مهارت های شما",style:GoogleFonts.vazirmatn(fontSize: 18,color: const Color(0xFF00685E),fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 20),
+
                       ],
                     ),
                   ),
