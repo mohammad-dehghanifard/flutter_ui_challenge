@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/model/ability.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/widget/ads_custom_check_box.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/ads_custom_text_field.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/custom_radio_button.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +14,16 @@ class LoginFormScreen extends StatefulWidget {
 
 class _LoginFormScreenState extends State<LoginFormScreen> {
   bool isMale = true;
+
+  final List<Ability> abilityList = [
+    Ability(text: "جنگو"),
+    Ability(text: "کاتلین"),
+    Ability(text: "جاوا"),
+    Ability(text: "یونیتی"),
+    Ability(text: "لاراول"),
+    Ability(text: "فلاتر"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -91,8 +103,35 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                           ],
                         ),
                         // Ability
+                        const SizedBox(height: 20),
                         Text("مهارت های شما",style:GoogleFonts.vazirmatn(fontSize: 18,color: const Color(0xFF00685E),fontWeight: FontWeight.bold)),
                         const SizedBox(height: 20),
+                        // ability list
+                        Wrap(
+                          runSpacing: 12,
+                          spacing: 8,
+                          alignment: WrapAlignment.end,
+                          children: List.generate(abilityList.length, (index) {
+                            return GestureDetector(
+                              onTap: () {
+                                abilityList[index].selected = !abilityList[index].selected;
+                                setState(() {});
+                              },
+                              child: SizedBox(
+                                width: 80,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    AdsCustomCheckBox(isActive: abilityList[index].selected),
+                                    const SizedBox(width: 8),
+                                    Text(abilityList[index].text,style: GoogleFonts.vazirmatn()),
+
+                                  ],
+                                ),
+                              ),
+                            );
+                          }),
+                        )
 
                       ],
                     ),
@@ -117,6 +156,8 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
     );
   }
 }
+
+
 
 
 
