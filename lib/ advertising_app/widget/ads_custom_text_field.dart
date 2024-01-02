@@ -25,7 +25,7 @@ class AdsCustomTextField extends StatelessWidget {
                 hintStyle: GoogleFonts.vazirmatn(color: const Color(0xFF979797)),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none
                 )
 

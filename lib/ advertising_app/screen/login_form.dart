@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/ads_custom_text_field.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/widget/custom_radio_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginFormScreen extends StatelessWidget {
+class LoginFormScreen extends StatefulWidget {
   const LoginFormScreen({super.key});
 
+  @override
+  State<LoginFormScreen> createState() => _LoginFormScreenState();
+}
+
+class _LoginFormScreenState extends State<LoginFormScreen> {
+  bool isMale = true;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -32,25 +39,55 @@ class LoginFormScreen extends StatelessWidget {
               ),
             ),
             //form
-            const Expanded(child: SingleChildScrollView(
+             Expanded(child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: SizedBox(
                     width: double.infinity,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         // full name text field
-                        SizedBox(height: 40),
-                        AdsCustomTextField(
+                        const SizedBox(height: 40),
+                        const AdsCustomTextField(
                           label: "نام",
                           hint: "نام و نام خانوادگی خود را وارد کنید",
                         ),
                         // phone number text field
-                        SizedBox(height: 40),
-                        AdsCustomTextField(
+                        const SizedBox(height: 20),
+                        const AdsCustomTextField(
                           label: "شماره موبایل",
                           hint: "شماره موبایل خود را وارد کنید",
+                        ),
+                        const SizedBox(height: 20),
+                        // gender
+                        Text("جنسیت",style:GoogleFonts.vazirmatn(fontSize: 18,color: const Color(0xFF00685E),fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 20),
+                        Row(
+                          children: [
+                            // female
+                            Expanded(
+                              child: CustomRadioButton(
+                                onTap: () {
+                                  isMale = false;
+                                  setState(() {});
+                                },
+                                gender: 'زن',
+                                value: isMale == false,
+                              ),
+                            ),
+                            //male
+                            Expanded(
+                                child: CustomRadioButton(
+                                  onTap: () {
+                                    isMale = true;
+                                    setState(() {});
+                                  },
+                                  gender: 'مرد',
+                                  value: isMale,
+                                ),
+                            ),
+                          ],
                         )
                       ],
                     ),
@@ -75,6 +112,7 @@ class LoginFormScreen extends StatelessWidget {
     );
   }
 }
+
 
 
 
