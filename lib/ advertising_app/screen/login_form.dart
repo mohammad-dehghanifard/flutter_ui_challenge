@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/widget/ads_custom_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginFormScreen extends StatelessWidget {
@@ -31,16 +32,26 @@ class LoginFormScreen extends StatelessWidget {
               ),
             ),
             //form
-            Expanded(child: SingleChildScrollView(
+            const Expanded(child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 20),
                   child: SizedBox(
                     width: double.infinity,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const SizedBox(height: 40),
-                        Text("نام",style:GoogleFonts.vazirmatn(fontSize: 18,color: const Color(0xFF00685E),fontWeight: FontWeight.bold))
+                        // full name text field
+                        SizedBox(height: 40),
+                        AdsCustomTextField(
+                          label: "نام",
+                          hint: "نام و نام خانوادگی خود را وارد کنید",
+                        ),
+                        // phone number text field
+                        SizedBox(height: 40),
+                        AdsCustomTextField(
+                          label: "شماره موبایل",
+                          hint: "شماره موبایل خود را وارد کنید",
+                        )
                       ],
                     ),
                   ),
@@ -64,3 +75,6 @@ class LoginFormScreen extends StatelessWidget {
     );
   }
 }
+
+
+
