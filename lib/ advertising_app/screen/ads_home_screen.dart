@@ -15,7 +15,9 @@ class AdsHomeScreen extends StatelessWidget {
           child: Row(
             children: [
               // Drawer
-              IconButton(onPressed: () {}, icon: const Icon(Icons.menu,color: Colors.white,size: 30)),
+              IconButton(
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                  icon: const Icon(Icons.menu,color: Colors.white,size: 30)),
               Text("آگهی های هیتال",style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 18)),
               const Spacer(),
               // filter icon

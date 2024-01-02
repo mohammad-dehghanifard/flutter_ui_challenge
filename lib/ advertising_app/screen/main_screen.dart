@@ -17,6 +17,17 @@ class _AdsMainScreenState extends State<AdsMainScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: Colors.black,
+        drawer:  Drawer(
+          backgroundColor: const Color(0xFF5C45DB),
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              Image.asset("assets/ads_ui/logo.png",height: 80),
+              const SizedBox(height: 20),
+              Text("به تیم هیتال خوش آمدید",style: GoogleFonts.vazirmatn(fontWeight: FontWeight.w900,fontSize: 18,color: Colors.white),)
+            ],
+          ),
+        ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
