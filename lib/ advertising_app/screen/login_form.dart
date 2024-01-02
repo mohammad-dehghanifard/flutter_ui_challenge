@@ -26,8 +26,36 @@ class LoginFormScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.asset("assets/ads_ui/logo.png",height: 80),
-                  Text("ثبت نام در هیتال",style: GoogleFonts.vazirmatn(fontSize: 20,color: Colors.white,fontWeight: FontWeight.w900),)
+                  Text("ثبت نام در هیتال",style: GoogleFonts.vazirmatn(fontSize: 20,color: Colors.white,fontWeight: FontWeight.w900))
                 ],
+              ),
+            ),
+            //form
+            Expanded(child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const SizedBox(height: 40),
+                        Text("نام",style:GoogleFonts.vazirmatn(fontSize: 18,color: const Color(0xFF00685E),fontWeight: FontWeight.bold))
+                      ],
+                    ),
+                  ),
+                )
+            )),
+            // button
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: MaterialButton(
+                onPressed: () {},
+                minWidth: double.infinity,
+                height: 48,
+                color: const Color(0XFFA41DDC),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                child: Text("ثبت نام",style:GoogleFonts.vazirmatn(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold)),
               ),
             )
           ],
