@@ -29,9 +29,9 @@ class _AdsMainScreenState extends State<AdsMainScreen> {
           ),
         ),
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.white),
-            borderRadius: const BorderRadius.only(
+          decoration: const BoxDecoration(
+            border: Border(top: BorderSide(color: Colors.white)),
+            borderRadius: BorderRadius.only(
               topLeft: Radius.circular(25),
               topRight: Radius.circular(25),
             )

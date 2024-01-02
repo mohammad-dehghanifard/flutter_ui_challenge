@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/widget/filter_bottom_sheet.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdsHomeScreen extends StatelessWidget {
@@ -22,7 +23,20 @@ class AdsHomeScreen extends StatelessWidget {
               const Spacer(),
               // filter icon
               GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      backgroundColor: const Color(0xFF6E5ADF),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        )
+                      ),
+                      builder: (context) {
+                      return const FilterBottomSheet();
+                    },);
+                  },
                   child: const Icon(Icons.filter_alt_outlined,color: Colors.white)),
               // sort icon
               Directionality(
