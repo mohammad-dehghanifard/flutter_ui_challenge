@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_challenge/movie_app/screen/movie_ui_intro.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/screen/login_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MovieIntroScreen(),
+      home: const LoginFormScreen(),
     );
   }
 }
