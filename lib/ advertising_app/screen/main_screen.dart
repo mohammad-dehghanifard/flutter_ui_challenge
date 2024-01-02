@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/screen/ads_home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdsMainScreen extends StatefulWidget {
@@ -15,14 +16,19 @@ class _AdsMainScreenState extends State<AdsMainScreen> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25),
+        backgroundColor: Colors.black,
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.white),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
+            )
           ),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white)
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
             ),
             child: BottomNavigationBar(
               backgroundColor: Colors.black,
@@ -45,14 +51,16 @@ class _AdsMainScreenState extends State<AdsMainScreen> {
             ),
           ),
         ),
-        body: IndexedStack(
-          index: _selectedTab,
-          children: [
-            Center(child: Text("صفحه اصلی")),
-            Center(child: Text("درخواست ها")),
-            Center(child: Text("حساب کاربری")),
-            Center(child: Text("خروج از حساب")),
-          ],
+        body: SafeArea(
+          child: IndexedStack(
+            index: _selectedTab,
+            children: const [
+              AdsHomeScreen(),
+              Center(child: Text("درخواست ها")),
+              Center(child: Text("حساب کاربری")),
+              Center(child: Text("خروج از حساب")),
+            ],
+          ),
         ),
       ),
     );
