@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/model/ads_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdsListItem extends StatelessWidget {
   const AdsListItem({
-    super.key,
+    super.key, required this.ads,
   });
-
+  final AdsModel ads;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 8),
       child: SizedBox(
         height: 180,
         child: Stack(
@@ -38,7 +39,7 @@ class AdsListItem extends StatelessWidget {
                             color: const Color(0xFF009CDF),
                             borderRadius: BorderRadius.circular(30)
                         ),
-                        child: Center(child: Text("حضوری",style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.bold))),
+                        child: Center(child: Text(ads.inPerson? "حضوری" : "دورکاری",style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.bold))),
                       ),
                     ),
                     //ability
@@ -47,7 +48,7 @@ class AdsListItem extends StatelessWidget {
                         const SizedBox(width: 8),
                         Text("مهارت های مورد نیاز:",style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16)),
                         const SizedBox(width: 8),
-                        Text("زبان دارت و معماری کلین",style: GoogleFonts.vazirmatn(color: Colors.white,fontSize: 14)),
+                        Text(ads.ability,style: GoogleFonts.vazirmatn(color: Colors.white,fontSize: 14)),
 
                       ],
                     ),
@@ -58,7 +59,7 @@ class AdsListItem extends StatelessWidget {
                         const SizedBox(width: 8),
                         Text("حقوق پیشنهادی:",style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16)),
                         const SizedBox(width: 8),
-                        Text(" 10 تا 20 میلیون",style: GoogleFonts.vazirmatn(color: Colors.white,fontSize: 14)),
+                        Text(ads.salary,style: GoogleFonts.vazirmatn(color: Colors.white,fontSize: 14)),
                       ],
                     ),
                     // delete icon
@@ -89,7 +90,7 @@ class AdsListItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                   border: Border.all(color: Colors.white)
               ),
-              child: Text("استخدام برنامه نویس فلاتر",style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 17)),
+              child: Text(ads.title,style: GoogleFonts.vazirmatn(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 17)),
             ),
             // view btn
             Align(

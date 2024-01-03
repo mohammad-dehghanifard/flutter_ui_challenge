@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/ads_list_item.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/filter_bottom_sheet.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/sort_pop_up_menu.dart';
+import 'package:flutter_ui_challenge/data/fake_ads_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdsHomeScreen extends StatelessWidget {
@@ -49,11 +50,12 @@ class AdsHomeScreen extends StatelessWidget {
             ],
           ),
         ),
+        // ads list
         Expanded(
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: adsList.length,
             itemBuilder: (context, index) {
-            return const AdsListItem();
+            return AdsListItem(ads: adsList[index]);
           },),
         )
       ],
