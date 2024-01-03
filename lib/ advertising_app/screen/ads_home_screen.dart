@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/widget/filter_bottom_sheet.dart';
+import 'package:flutter_ui_challenge/%20advertising_app/widget/sort_pop_up_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdsHomeScreen extends StatelessWidget {
@@ -38,10 +39,10 @@ class AdsHomeScreen extends StatelessWidget {
                     },);
                   },
                   child: const Icon(Icons.filter_alt_outlined,color: Colors.white)),
-              // sort icon
-              Directionality(
+              // popup menu
+              const Directionality(
                 textDirection: TextDirection.ltr,
-                child: IconButton(onPressed: () {},icon: const Icon(Icons.sort,color: Colors.white)),
+                child: SortPopUpMenu(),
               ),
             ],
           ),
@@ -50,3 +51,5 @@ class AdsHomeScreen extends StatelessWidget {
     );
   }
 }
+
+
