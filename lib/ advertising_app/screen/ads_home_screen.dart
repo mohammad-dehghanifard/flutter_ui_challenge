@@ -49,7 +49,13 @@ class AdsHomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        const AdsListItem()
+        Expanded(
+          child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) {
+            return const AdsListItem();
+          },),
+        )
       ],
     );
   }
