@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_home_header.dart';
+import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_search_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DoctorHomeScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class DoctorHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100,
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.sizeOf(context).width,
@@ -51,7 +52,14 @@ class DoctorHomeScreen extends StatelessWidget {
                 ),
               ),
               // header
-              const DoctorHomeHeader()
+              const DoctorHomeHeader(),
+              // search text field
+              const Positioned(
+                top: 130,
+                right: 30,
+                left: 30,
+                child: DoctorSearchTextField(),
+              )
             ],
           ),
         ),
@@ -59,5 +67,7 @@ class DoctorHomeScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
