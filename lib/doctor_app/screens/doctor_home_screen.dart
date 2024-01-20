@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_home_header.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DoctorHomeScreen extends StatelessWidget {
   const DoctorHomeScreen({super.key});
@@ -14,17 +16,20 @@ class DoctorHomeScreen extends StatelessWidget {
           child: Stack(
             children: [
               // blue
-              Container(
-                width: 216,
-                height: 216,
-                decoration:  BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(100),
-                    bottomRight: Radius.circular(100),
+              Positioned(
+                top: 145,
+                child: Container(
+                  width: 216,
+                  height: 216,
+                  decoration:  BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(100),
+                      bottomRight: Radius.circular(100),
+                    ),
+                    boxShadow: [
+                      BoxShadow(color: const Color(0xFF61CEFF).withOpacity(0.30),blurRadius: 50)
+                    ]
                   ),
-                  boxShadow: [
-                    BoxShadow(color: const Color(0xFF61CEFF).withOpacity(0.30),blurRadius: 50)
-                  ]
                 ),
               ),
               // green
@@ -45,11 +50,8 @@ class DoctorHomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                children: [
-
-                ],
-              )
+              // header
+              const DoctorHomeHeader()
             ],
           ),
         ),
@@ -57,3 +59,5 @@ class DoctorHomeScreen extends StatelessWidget {
     );
   }
 }
+
+
