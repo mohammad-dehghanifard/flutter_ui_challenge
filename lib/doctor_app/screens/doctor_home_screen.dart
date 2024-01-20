@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenge/data/fake_game_data.dart';
 import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_home_header.dart';
+import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_live_item.dart';
 import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_search_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,6 +10,17 @@ class DoctorHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final List<String> doctorLives = [
+      "assets/doctor_ui/live1.jpg",
+      "assets/doctor_ui/live3.jpg",
+      "assets/doctor_ui/live2.jpg",
+      "assets/doctor_ui/live1.jpg",
+      "assets/doctor_ui/live3.jpg",
+      "assets/doctor_ui/live1.jpg",
+    ];
+
+
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: SafeArea(
@@ -59,6 +72,34 @@ class DoctorHomeScreen extends StatelessWidget {
                 right: 30,
                 left: 30,
                 child: DoctorSearchTextField(),
+              ),
+              //body
+              Positioned(
+                top: 190,
+                right: 0,
+                left: 0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // doctor lives
+                    Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Text("Live Doctors",style: GoogleFonts.rubik(color: const Color(0xFF333333),fontSize: 18,fontWeight: FontWeight.w500)),
+                    ),
+                    SizedBox(
+                      height: 168,
+                      child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: doctorLives.length,
+                          itemBuilder: (context, index) {
+                            return DoctorLiveItem(image: doctorLives[index]);
+                          },
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),
@@ -67,6 +108,8 @@ class DoctorHomeScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
