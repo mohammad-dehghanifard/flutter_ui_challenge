@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenge/%20advertising_app/screen/main_screen.dart';
+import 'package:flutter_ui_challenge/doctor_app/screens/doctor_home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
       ),
       debugShowCheckedModeBanner: false,
-      home: const AdsMainScreen(),
+      home: const DoctorHomeScreen(),
     );
   }
 }
