@@ -18,7 +18,7 @@ class DoctorLiveItem extends StatelessWidget {
         Container(
           width: 116,
           height: 168,
-          margin: const EdgeInsets.symmetric(horizontal: 6),
+          margin: const EdgeInsets.only(right: 12),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12)
           ),

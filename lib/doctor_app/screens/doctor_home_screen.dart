@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_challenge/data/fake_game_data.dart';
+import 'package:flutter_ui_challenge/doctor_app/helper/doctor_category.dart';
+import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_category_item.dart';
 import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_home_header.dart';
 import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_live_item.dart';
 import 'package:flutter_ui_challenge/doctor_app/widgets/doctor_search_text_field.dart';
@@ -18,6 +19,13 @@ class DoctorHomeScreen extends StatelessWidget {
       "assets/doctor_ui/live1.jpg",
       "assets/doctor_ui/live3.jpg",
       "assets/doctor_ui/live1.jpg",
+    ];
+    
+    final List<DoctorCategory> categoryList = [
+      DoctorCategory(iconPath: "assets/doctor_ui/1.png", colors: [const Color(0xFF2753F3),const Color(0xFF765AFC)]),
+      DoctorCategory(iconPath: "assets/doctor_ui/2.png", colors: [const Color(0xFF0EBE7E),const Color(0xFF07D9AD)]),
+      DoctorCategory(iconPath: "assets/doctor_ui/3.png", colors: [const Color(0xFFFE7F44),const Color(0xFFFFCF68)]),
+      DoctorCategory(iconPath: "assets/doctor_ui/4.png", colors: [const Color(0xFFFF484C),const Color(0xFFFF6C60)]),
     ];
 
 
@@ -97,6 +105,20 @@ class DoctorHomeScreen extends StatelessWidget {
                             return DoctorLiveItem(image: doctorLives[index]);
                           },
                       ),
+                    ),
+                    const SizedBox(height: 16),
+                    // category list
+                    SizedBox(
+                      height: 100,
+                      child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 35),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categoryList.length,
+                        itemBuilder: (context, index) {
+                          return DoctorCategoryItem(category: categoryList[index]);
+                        },
+                      ),
                     )
                   ],
                 ),
@@ -108,6 +130,7 @@ class DoctorHomeScreen extends StatelessWidget {
     );
   }
 }
+
 
 
 
